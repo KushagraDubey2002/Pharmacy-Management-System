@@ -1,0 +1,74 @@
+.mat-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+  }
+  
+  .mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .mat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mat-card-content div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mat-button {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .mat-button:hover {
+    background-color: #1565c0;
+  }
+  
+  .mat-raised-button {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .mat-raised-button.mat-primary {
+    background-color: #4caf50;
+  }
+  
+  .mat-raised-button[disabled] {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+  
+  .mat-raised-button:hover {
+    background-color: #388e3c;
+  }
+  
+  .mat-card-content strong {
+    font-size: 18px;
+    margin-top: 16px;
+    display: block;
+    text-align: right;
+  }
+  

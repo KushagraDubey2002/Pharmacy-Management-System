@@ -1,0 +1,53 @@
+/* <style> */
+.order-details-container {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.order-details-container h1 {
+  color: #007bff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-info, .order-items {
+  margin-top: 30px;
+}
+
+.order-info h3, .order-items h3 {
+  font-size: 1.5rem;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.order-info p, .order-items table {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.order-info p strong {
+  color: #007bff;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.thead-dark th {
+  background-color: #343a40;
+  color: white;
+}
+
+.alert {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+/* </style> */

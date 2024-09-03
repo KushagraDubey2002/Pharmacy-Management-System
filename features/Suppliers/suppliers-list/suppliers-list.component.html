@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .suppliers-list-container {
+      max-width: 96%;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      background-image: url('../../../../assets/images/img12.jpg');
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .suppliers-list-container h1 {
+      color: #343a40;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .table {
+      margin-top: 20px;
+    }
+
+    .table th, .table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .thead-dark th {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+
+    .btn-primary, .btn-warning {
+      margin-right: 5px;
+    }
+
+    .alert {
+      font-size: 1.1rem;
+    }
+
+    .ms-2 {
+      margin-left: 0.5rem;
+    }
+
+    .d-flex.justify-content-end.mt-3 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container suppliers-list-container">
+    <h1><i class="fas fa-list"></i> Suppliers List</h1>
+  
+    <div class="d-flex justify-content-end mt-3">
+        <a [routerLink]="['/admin/suppliers/add']" class="btn btn-primary">Add Supplier</a>
+    </div>
+
+    <ng-container *ngIf="suppliers$ | async as supplier">
+      <table class="table table-bordered mt-3 table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Supplier Id</th>
+            <th>Supplier Name</th>
+            <th>Supplier Contact</th>
+            <th>Supplier Email Id</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sup of supplier">
+            <td>{{sup.supplierId}}</td>
+            <td>{{sup.name}}</td>
+            <td>{{sup.contact}}</td>
+            <td>{{sup.email}}</td>
+            <td>
+              <a class="btn btn-warning ms-2" [routerLink]="['/admin/suppliers',sup.supplierId]">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #noSuppliersFound>
+      <div class="alert alert-warning mt-3 text-center" role="alert">
+        No suppliers found.
+      </div>
+    </ng-template>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

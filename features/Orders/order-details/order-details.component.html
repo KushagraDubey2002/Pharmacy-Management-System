@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+  <!-- <style>
+    .order-details-container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .order-details-container h1 {
+      color: #007bff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .order-info, .order-items {
+      margin-top: 30px;
+    }
+
+    .order-info h3, .order-items h3 {
+      font-size: 1.5rem;
+      color: #28a745;
+      margin-bottom: 15px;
+    }
+
+    .order-info p, .order-items table {
+      font-size: 1rem;
+      color: #495057;
+    }
+
+    .order-info p strong {
+      color: #007bff;
+    }
+
+    .table th, .table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .thead-dark th {
+      background-color: #343a40;
+      color: white;
+    }
+
+    .alert {
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+  </style> -->
+<!-- </head> -->
+<body>
+  <div class="container order-details-container">
+    <h1><i class="fas fa-receipt"></i> Order Details</h1>
+    
+    <ng-container *ngIf="order; else noOrder">
+      <div class="order-info">
+        <h3><i class="fas fa-info-circle"></i> Order Information</h3>
+        <p><strong>Order ID:</strong> {{ order.orderId }}</p>
+        <p><strong>User ID:</strong> {{ order.userId }}</p>
+        <p><strong>Order Date:</strong> {{ order.orderDate | date }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Total Amount:</strong> {{ order.totalAmount | currency: "INR" }}</p>
+      </div>
+  
+      <div class="order-items">
+        <h3><i class="fas fa-box-open"></i> Ordered Items</h3>
+        <table class="table table-hover table-bordered mt-3">
+          <thead class="thead-dark">
+            <tr>
+              <th>Order Item Id</th>
+              <th>Drug Id</th>
+              <th>Drug Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of order.orderItems">
+              <td>{{ item.orderItemId }}</td>
+              <td>{{ item.drugId }}</td>
+              <td>{{ item.drugName }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.price | currency: "INR" }}</td>
+              <td>{{ item.totalAmount | currency: "INR" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  
+    <ng-template #noOrder>
+      <div class="alert alert-warning text-center" role="alert">
+        <i class="fas fa-exclamation-triangle"></i> Order not found!
+      </div>
+    </ng-template>
+  </div>
+</body>
+<!-- </html> -->
+
+

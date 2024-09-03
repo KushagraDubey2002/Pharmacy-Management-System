@@ -1,0 +1,35 @@
+  <div class="mat-card payment-container">
+    <div class="mat-card-title payment-title">
+        <i class="fas fa-credit-card"></i> Payment
+    </div>
+    <div class="mat-card-content payment-content">
+        <div *ngIf="cartItems.length === 0" class="empty-cart">
+            <i class="fas fa-info-circle"></i> Your cart is empty.
+        </div>
+        <div *ngFor="let item of cartItems" class="cart-item">
+            <div class="item-details">
+                <span class="item-name"><i class="fas fa-pills"></i> {{ item.name }}</span>
+                <span class="item-price">{{ item.price  }}</span>
+          </div>
+            <div class="item-quantity">
+                <span class="quantity">{{ item.quantity }}</span>
+            </div>
+            <div class="item-total">
+                <span>Total: {{ item.price * item.quantity }}</span>
+            </div>
+        </div>
+        <div class="payment-summary">
+            <strong>Total: {{ totalPrice }}</strong>
+        </div>
+        <button class="mat-raised-button mat-primary place-order-button" (click)="placeOrder()">
+            <i class="fas fa-check"></i> Place Order
+        </button>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    
+    
+  </div>
+  

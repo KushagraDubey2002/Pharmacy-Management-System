@@ -1,0 +1,108 @@
+  <!-- ==================================== -->
+  <div class="container mt-5">
+    <h1 class="text-center text-primary"><i class="fas fa-chart-line"></i> Sales Report</h1>
+
+    <form #reportForm="ngForm" (ngSubmit)="onGenerateReport()">
+        <div class="form-group mt-4">
+            <label for="startDate"><i class="fas fa-calendar-alt"></i> Start Date:</label>
+            <input type="date" id="startDate" class="form-control" [(ngModel)]="startDate" name="startDate" #startDateField="ngModel" (change)="validateDates()" required>
+            <div *ngIf="startDateField.invalid && (startDateField.dirty || startDateField.touched)" class="text-danger">
+                <div *ngIf="startDateField.errors?.['required']">Start Date is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="endDate"><i class="fas fa-calendar-alt"></i> End Date:</label>
+            <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate" name="endDate" #endDateField="ngModel" (change)="validateDates()" [attr.min]="startDate" required>
+            <div *ngIf="endDateField.invalid && (endDateField.dirty || endDateField.touched)" class="text-danger">
+                <div *ngIf="endDateField.errors?.['required']">End Date is required.</div>
+                <div *ngIf="endDateField.errors?.['min']">End Date cannot be before Start Date.</div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <button class="btn btn-success" type="submit" [disabled]="reportForm.invalid"><i class="fas fa-file-alt"></i> Generate Report</button>
+        </div>
+    </form>
+    <br>
+
+    <ng-container *ngIf="salesReport">
+        <div class="mt-5">
+            <h3 class="text-success"><i class="fas fa-info-circle"></i> Sales Report Summary</h3>
+            <p><strong>Total Sales:</strong> {{ salesReport.totalSales | currency: "INR" }}</p>
+            <p><strong>Total Orders:</strong> {{ salesReport.totalOrders }}</p>
+        </div>
+
+        <div class="mt-4">
+            <h3 class="text-success"><i class="fas fa-list"></i> Sales Report Details</h3>
+            <table class="table table-hover mt-3">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Drug Id</th>
+                        <th>Drug Name</th>
+                        <th>Total Quantity Sold</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of salesReport.salesReportItems">
+                        <td>{{ item.drugId }}</td>
+                        <td>{{ item.drugName }}</td>
+                        <td>{{ item.totalQuantitySold }}</td>
+                        <td>{{ item.totalAmount | currency:"INR" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" (click)="downloadExcel()">Download Report</button>
+        <button type="button" (click)="printReport()">Print Report</button>
+        <br>
+        <br>
+    </ng-container>
+</div>
+
+<!-- Add Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Add Bootstrap CSS for styling (if not already included) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .container {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .form-group label {
+        font-weight: bold;
+        color: #007bff;
+    }
+    .form-control {
+        border-radius: 10px;
+        border-color: #007bff;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        border-radius: 20px;
+        padding: 0.5rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+    .table {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+    .table thead {
+        background-color: #343a40;
+        color: white;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #e9ecef;
+    }
+</style>

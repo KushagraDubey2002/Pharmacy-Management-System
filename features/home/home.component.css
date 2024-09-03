@@ -1,0 +1,114 @@
+body{
+  background-image: url('/src/assets/images/AdminBG2.jpg');
+  
+}
+
+
+.admin-dashboard-container {
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 70px;
+  /* background-color: #f9f9f9; */
+  body{
+    background: url('/src/assets/images/AdminBG2.jpg');
+  }
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard-container h1 {
+  color: #343a40;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.user-view-container {
+  max-width: 100%;
+  margin-right: 0px;
+  /* margin-right: 200px; */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* .user-view-container {
+  padding: 20px;
+  background-color: #f4f6f9;
+  max-width: cover;
+} */
+
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.welcome-text {
+  margin-top: 30px;
+  text-align: center;
+  color: #343a40;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.welcome-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.drugs-list-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ------------------------------ */
+.user-view-container h1 {
+  color: #343a40;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel-inner img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.drugs-list-container {
+  margin-top: 20px;
+}
+
+.search-input {
+  max-width: 300px;
+  margin-right: 10px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.thead-dark th {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.btn-primary, .btn-warning, .btn-success {
+  margin-right: 5px;
+}
+
+.alert {
+  font-size: 1.1rem;
+}
+
+

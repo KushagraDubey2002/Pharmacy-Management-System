@@ -1,0 +1,82 @@
+<!-- <h1>
+    {{id}}
+</h1> -->
+<div class="container">
+    <h1 class="mt-3">Edit Drugs</h1>
+
+    <ng-container *ngIf="drug;else notFound">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+            <div class="mt-2">
+
+                <div class="mt-3">
+                    <label class="form-label" for="drugId">Drug Id</label>
+                    <input type="text" disabled
+                    id="drugId"
+                    class="form-control"
+                    name="drugId"
+                    value="{{drug.drugId}}">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="drugName">Drug Name</label>
+                    <input type="text" 
+                    id="drugName"
+                    class="form-control"
+                    name="drugName"
+                    [(ngModel)]="drug.name">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="drugPrice">Drug Price</label>
+                    <input type="text"
+                    id="drugPrice"
+                    class="form-control"
+                    name="drugPrice"
+                    [(ngModel)]="drug.price">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="quantity">Quantity</label>
+                    <input type="text"
+                    id="quantity"
+                    class="form-control"
+                    name="quantity"
+                    [(ngModel)]="drug.quantity">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="supplierId">SupplierId</label>
+                    <input type="text" disabled
+                    id="supplierId"
+                    class="form-control"
+                    name="supplierId"
+                    value="{{drug.supplierId}}">
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label" for="expiryDate">Drug Expiry</label>
+                    <input type="text"
+                    id="expiryDate"
+                    class="form-control"
+                    name="expiryDate"
+                    [(ngModel)]="drug.expiryDate">
+                </div>
+
+                <div class="mt-3 d-flex">
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                    <button type="button" class="btn btn-danger ms-3"
+                    (click)="onDelete()"
+                    > Delete</button>
+                </div>
+
+            </div>
+        </form>
+
+
+    </ng-container>
+    <ng-template #notFound><div class="alert alert-warning" role="alert">
+        Drug not found!
+      </div>
+    </ng-template>
+</div>
